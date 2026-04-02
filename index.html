@@ -770,6 +770,22 @@
   </footer>
 
   <script>
+    const LOOPS_ENDPOINT = 'https://app.loops.so/api/newsletter-form/cmngr5geq18m00itg98iokqgh';
+
+    async function submitToLoops(email, formEl, successEl) {
+      formEl.style.display = 'none';
+      successEl.style.display = 'block';
+      try {
+        await fetch(LOOPS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ email })
+        });
+      } catch (e) {
+        // silent fail — user already sees success state
+      }
+    }
+
     function handleSignup() {
       const input = document.getElementById('emailInput');
       const form = document.getElementById('signupForm');
@@ -780,8 +796,7 @@
         setTimeout(() => { input.style.borderColor = ''; }, 1500);
         return;
       }
-      form.style.display = 'none';
-      success.style.display = 'block';
+      submitToLoops(input.value, form, success);
     }
 
     function handleSignup2() {
@@ -794,8 +809,7 @@
         setTimeout(() => { input.style.borderColor = ''; }, 1500);
         return;
       }
-      form.style.display = 'none';
-      success.style.display = 'block';
+      submitToLoops(input.value, form, success);
     }
   </script>
 
