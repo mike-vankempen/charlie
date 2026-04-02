@@ -438,6 +438,7 @@
       body {
         min-height: 100dvh;
         overflow-x: hidden;
+        padding-bottom: 48px;
       }
 
       nav { padding: 24px 24px 16px; }
@@ -445,9 +446,8 @@
       .hero {
         flex-direction: column;
         padding: 0 24px 0;
-        gap: 32px;
+        gap: 36px;
         align-items: flex-start;
-        /* don't use flex:1 on mobile — let content size naturally */
         flex: none;
       }
 
@@ -475,31 +475,33 @@
 
       .signup-form input {
         width: 100%;
-        height: 52px;
+        height: 54px;
+        padding: 0 18px;
         font-size: 16px; /* prevents iOS auto-zoom */
-        border-radius: 10px;
+        line-height: 54px;
+        border-radius: 12px;
+        -webkit-appearance: none;
+        appearance: none;
       }
 
       .signup-form button {
         width: 100%;
-        height: 52px;
-        font-size: 15px;
-        border-radius: 10px;
+        height: 54px;
+        font-size: 16px;
+        border-radius: 12px;
       }
 
       .signup-note { font-size: 12px; }
 
-      /* ── phone: centered, cropped to show top ~60% above fold ── */
+      /* ── phone: full phone visible, centered, scrollable ── */
       .hero-right {
         width: 100%;
         justify-content: center;
-        /* clip the bottom so it peeks above the fold */
-        max-height: 340px;
-        overflow: hidden;
-        /* subtle fade-out at the bottom */
-        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-        margin-bottom: 0;
+        align-items: flex-start; /* anchor to top so bezel shows first */
+        overflow: visible;
+        max-height: none;
+        -webkit-mask-image: none;
+        mask-image: none;
       }
 
       .phone {
