@@ -484,14 +484,19 @@
       .hero-right {
         width: 100%;
         justify-content: center;
-        max-height: 420px;
-        overflow: hidden;
-        -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        overflow: visible;
+        max-height: none;
+        -webkit-mask-image: none;
+        mask-image: none;
       }
 
       .phone {
-        width: 300px;
+        width: min(88vw, 320px);
+      }
+
+      /* hide second action card on mobile so phone isn't so tall */
+      .action-card:last-child {
+        display: none;
       }
 
       .section { padding: 64px 24px; }
