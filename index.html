@@ -486,7 +486,12 @@
         justify-content: center;
       }
 
-      .phone { width: 260px; }
+      .phone {
+        width: 260px;
+        transform: scale(0.78);
+        transform-origin: top center;
+        margin-bottom: -120px; /* pull up the space left by scaling */
+      }
 
       .section { padding: 64px 24px; }
       .love-section { padding: 64px 24px; }
