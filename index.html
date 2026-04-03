@@ -484,13 +484,14 @@
       .hero-right {
         width: 100%;
         justify-content: center;
+        max-height: 420px;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
       }
 
       .phone {
-        width: 260px;
-        transform: scale(0.78);
-        transform-origin: top center;
-        margin-bottom: -120px; /* pull up the space left by scaling */
+        width: 300px;
       }
 
       .section { padding: 64px 24px; }
