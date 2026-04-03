@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Charlie — Coming Fall 2026</title>
+  <title>Charlie — The Money App That Actually Does The Work For You</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --navy:      #0C1554;
       --navy-deep: #080E3A;
+      --navy-mid:  #111e6e;
       --gold:      #C9C228;
       --blue-pale: #D0E4F2;
       --peach:     #FBBF72;
@@ -23,46 +24,52 @@
       --off-white: #F5F4F0;
     }
 
-    html, body {
-      height: 100%;
-      font-family: 'Inter', sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: var(--navy);
-      color: var(--white);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: 'Inter', sans-serif;
+      background: var(--off-white);
+      color: var(--near-black);
+      -webkit-font-smoothing: antialiased;
+      /* bottom padding so floating bar never covers content */
+      padding-bottom: 88px;
     }
 
-    /* ── NAV ── */
+    /* ─────────────────────────────
+       NAV
+    ───────────────────────────── */
     nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
       align-items: center;
-      padding: 28px 48px;
-      flex-shrink: 0;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+      background: var(--navy);
     }
 
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 500;
       color: var(--white);
       letter-spacing: -0.3px;
     }
 
-    /* ── HERO ── */
+    /* ─────────────────────────────
+       HERO
+    ───────────────────────────── */
     .hero {
-      flex: 1;
+      background: var(--navy);
+      min-height: 100dvh;
       display: flex;
       align-items: center;
-      padding: 0 48px 60px;
+      padding: 80px 48px 60px;
       gap: 64px;
       max-width: 1200px;
       margin: 0 auto;
-      width: 100%;
     }
 
     .hero-left {
@@ -71,12 +78,13 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
+      color: var(--white);
     }
 
     .eyebrow {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 2px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--gold);
     }
@@ -85,7 +93,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(36px, 4.5vw, 58px);
       font-weight: 500;
-      line-height: 1.1;
+      line-height: 1.08;
       color: var(--white);
     }
 
@@ -93,27 +101,247 @@
       font-size: clamp(15px, 1.5vw, 18px);
       font-weight: 400;
       line-height: 1.6;
-      color: rgba(255,255,255,0.72);
-      max-width: 440px;
+      color: rgba(255,255,255,0.7);
+      max-width: 420px;
     }
 
-    /* ── FORM ── */
-    .signup-wrap {
-      margin-top: 8px;
-    }
-
-    .signup-form {
+    .hero-right {
+      flex-shrink: 0;
       display: flex;
-      gap: 10px;
-      max-width: 440px;
+      align-items: center;
+      justify-content: center;
     }
 
-    .signup-form input {
+    /* ── screenshot placeholder ── */
+    .screenshot-placeholder {
+      width: 280px;
+      height: 560px;
+      background: rgba(255,255,255,0.06);
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.35);
+      font-size: 13px;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .screenshot-placeholder svg {
+      width: 40px;
+      height: 40px;
+      opacity: 0.3;
+    }
+
+    /* ─────────────────────────────
+       HOW IT WORKS
+    ───────────────────────────── */
+    .section {
+      padding: 96px 48px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.45;
+      margin-bottom: 14px;
+    }
+
+    .section-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 56px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .step-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border: 1px solid rgba(12,21,84,0.07);
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .step-body {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #4a4740;
+    }
+
+    .step-example {
+      margin-top: 4px;
+      background: var(--blue-pale);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--navy);
+      font-style: italic;
+    }
+
+    /* ─────────────────────────────
+       WHY YOU'LL LOVE IT
+    ───────────────────────────── */
+    .love-section {
+      background: var(--navy);
+      padding: 96px 48px;
+    }
+
+    .love-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .love-section .section-label { color: rgba(255,255,255,0.4); }
+    .love-section .section-headline { color: var(--white); margin-bottom: 52px; }
+
+    .love-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .love-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .love-icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .love-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .love-body {
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ─────────────────────────────
+       BOTTOM LINE
+    ───────────────────────────── */
+    .bottom-line {
+      background: var(--off-white);
+      padding: 96px 48px;
+      text-align: center;
+    }
+
+    .bottom-line-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .bottom-line .section-label { text-align: center; }
+
+    .bottom-line-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--navy);
+    }
+
+    .bottom-line-quote em {
+      font-style: italic;
+      color: rgba(12,21,84,0.6);
+    }
+
+    .bottom-line-cta {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.2px;
+    }
+
+    /* ─────────────────────────────
+       FLOATING PHONE CTA
+    ───────────────────────────── */
+    .floating-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--navy-deep);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .floating-bar form {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .floating-bar input {
       flex: 1;
-      height: 48px;
+      height: 46px;
       padding: 0 16px;
-      border: 1.5px solid rgba(255,255,255,0.25);
-      border-radius: 8px;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      border-radius: 10px;
       background: rgba(255,255,255,0.07);
       color: var(--white);
       font-family: 'Inter', sans-serif;
@@ -125,47 +353,38 @@
       box-sizing: border-box;
     }
 
-    .signup-form input::placeholder { color: rgba(255,255,255,0.4); }
-    .signup-form input:focus { border-color: rgba(255,255,255,0.55); }
+    .floating-bar input::placeholder { color: rgba(255,255,255,0.38); }
+    .floating-bar input:focus { border-color: rgba(255,255,255,0.5); }
 
-    .signup-form button {
-      height: 48px;
+    .floating-bar button {
+      height: 46px;
       padding: 0 22px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       background: var(--gold);
       color: var(--navy-deep);
       font-family: 'Inter', sans-serif;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
       transition: opacity 0.15s;
+      flex-shrink: 0;
     }
 
-    .signup-form button:hover { opacity: 0.88; }
+    .floating-bar button:hover { opacity: 0.88; }
 
-    .signup-success {
+    .floating-success {
       display: none;
       font-size: 15px;
       color: var(--sage);
-      padding: 14px 0;
+      text-align: center;
+      padding: 8px 0;
     }
 
-    .signup-note {
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-      margin-top: 10px;
-    }
-
-    /* ── PHONE MOCKUP ── */
-    .hero-right {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
+    /* ─────────────────────────────
+       PHONE MOCKUP (hero right)
+    ───────────────────────────── */
     .phone {
       width: 280px;
       background: #f5f0eb;
@@ -175,7 +394,6 @@
         0 0 0 1px rgba(255,255,255,0.12),
         0 40px 80px rgba(0,0,0,0.5),
         0 12px 32px rgba(0,0,0,0.35);
-      position: relative;
     }
 
     .phone-screen {
@@ -185,7 +403,6 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* status bar */
     .phone-status {
       display: flex;
       align-items: center;
@@ -194,477 +411,320 @@
       font-size: 11px;
       font-weight: 600;
       color: #14100A;
+      position: relative;
     }
 
     .phone-status .time { font-size: 13px; font-weight: 700; }
-
-    .phone-status .icons {
-      display: flex;
-      gap: 5px;
-      align-items: center;
-    }
-
+    .phone-status .icons { display: flex; gap: 5px; align-items: center; }
     .phone-status .icons svg { width: 14px; height: 14px; fill: #14100A; }
 
-    /* dynamic island */
     .dynamic-island {
-      width: 100px;
-      height: 28px;
+      width: 100px; height: 28px;
       background: #14100A;
       border-radius: 20px;
-      margin: 0 auto 2px;
+      position: absolute;
+      left: 50%; top: 14px;
+      transform: translateX(-50%);
     }
 
-    /* app content */
-    .app-content {
-      padding: 14px 16px 18px;
-      color: #14100A;
-    }
+    .app-content { padding: 14px 16px 18px; color: #14100A; }
+    .app-date { font-size: 10px; font-weight: 500; color: #9e9a93; letter-spacing: .5px; text-transform: uppercase; margin-bottom: 4px; }
+    .app-greeting { font-size: 20px; font-weight: 700; margin-bottom: 14px; }
 
-    .app-date {
-      font-size: 10px;
-      font-weight: 500;
-      color: #9e9a93;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .app-greeting {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    /* balance card */
     .balance-card {
       background: linear-gradient(135deg, #0C1554 0%, #1a2880 100%);
-      border-radius: 16px;
-      padding: 14px 16px 16px;
-      color: white;
-      margin-bottom: 14px;
+      border-radius: 16px; padding: 14px 16px 16px; color: white; margin-bottom: 14px;
     }
 
-    .balance-label {
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 4px;
-    }
+    .balance-label { font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+    .balance-amount { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+    .balance-badge { display: inline-flex; align-items: center; gap: 3px; background: rgba(201,194,40,0.25); color: #C9C228; font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 20px; margin-bottom: 12px; }
 
-    .balance-amount {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 6px;
-    }
+    .balance-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+    .balance-item { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 8px 10px; }
+    .balance-item-label { font-size: 8px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 3px; }
+    .balance-item-value { font-size: 13px; font-weight: 700; }
 
-    .balance-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      background: rgba(201,194,40,0.25);
-      color: #C9C228;
-      font-size: 10px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-    }
+    .actions-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .actions-label { font-size: 9px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #9e9a93; }
+    .actions-badge { width: 18px; height: 18px; background: var(--navy); color: white; border-radius: 50%; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 
-    .balance-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-
-    .balance-item {
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 8px 10px;
-    }
-
-    .balance-item-label {
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 3px;
-    }
-
-    .balance-item-value {
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    /* actions */
-    .actions-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .actions-label {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: #9e9a93;
-    }
-
-    .actions-badge {
-      width: 18px;
-      height: 18px;
-      background: var(--navy);
-      color: white;
-      border-radius: 50%;
-      font-size: 10px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .action-card {
-      background: white;
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-bottom: 8px;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-    }
-
-    .action-tag {
-      display: inline-block;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 3px 7px;
-      border-radius: 4px;
-      margin-bottom: 6px;
-    }
-
+    .action-card { background: white; border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+    .action-tag { display: inline-block; font-size: 8px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 7px; border-radius: 4px; margin-bottom: 6px; }
     .tag-move { background: #D0E4F2; color: #0C1554; }
     .tag-leak { background: #FBBF7233; color: #b05a00; }
-
-    .action-time {
-      float: right;
-      font-size: 9px;
-      color: #9e9a93;
-      margin-top: 3px;
-    }
-
-    .action-body {
-      font-size: 11px;
-      color: #444;
-      line-height: 1.4;
-      margin-bottom: 10px;
-      clear: both;
-    }
-
+    .action-time { float: right; font-size: 9px; color: #9e9a93; margin-top: 3px; }
+    .action-body { font-size: 11px; color: #444; line-height: 1.4; margin-bottom: 10px; clear: both; }
     .action-body strong { color: #14100A; }
 
-    .progress-bar {
-      height: 4px;
-      background: #eee;
-      border-radius: 2px;
-      margin-bottom: 8px;
-      overflow: hidden;
-    }
+    .progress-bar { height: 4px; background: #eee; border-radius: 2px; margin-bottom: 8px; overflow: hidden; }
+    .progress-fill { height: 100%; width: 82%; background: var(--navy); border-radius: 2px; }
 
-    .progress-fill {
-      height: 100%;
-      width: 82%;
-      background: var(--navy);
-      border-radius: 2px;
-    }
+    .action-buttons { display: flex; gap: 6px; }
+    .btn-primary { flex: 1; height: 30px; background: var(--navy); color: white; border: none; border-radius: 8px; font-size: 10px; font-weight: 600; cursor: default; display: flex; align-items: center; justify-content: center; }
+    .btn-secondary { height: 30px; padding: 0 10px; background: #f0ede8; color: #666; border: none; border-radius: 8px; font-size: 10px; font-weight: 500; cursor: default; display: flex; align-items: center; justify-content: center; }
+    .btn-cancel { flex: 1; height: 30px; background: #fde8e8; color: #c0392b; border: none; border-radius: 8px; font-size: 10px; font-weight: 600; cursor: default; display: flex; align-items: center; justify-content: center; }
 
-    .action-buttons {
-      display: flex;
-      gap: 6px;
-    }
-
-    .btn-primary {
-      flex: 1;
-      height: 30px;
-      background: var(--navy);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 10px;
-      font-weight: 600;
-      cursor: default;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .btn-secondary {
-      height: 30px;
-      padding: 0 10px;
-      background: #f0ede8;
-      color: #666;
-      border: none;
-      border-radius: 8px;
-      font-size: 10px;
-      font-weight: 500;
-      cursor: default;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .btn-cancel {
-      flex: 1;
-      height: 30px;
-      background: #fde8e8;
-      color: #c0392b;
-      border: none;
-      border-radius: 8px;
-      font-size: 10px;
-      font-weight: 600;
-      cursor: default;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ── RESPONSIVE ── */
+    /* ─────────────────────────────
+       RESPONSIVE
+    ───────────────────────────── */
     @media (max-width: 820px) {
-      html, body { height: auto; }
-
-      body {
-        min-height: 100dvh;
-        overflow-x: hidden;
-        padding-bottom: 48px;
-      }
-
-      nav { padding: 24px 24px 16px; }
+      nav { padding: 0 24px; }
 
       .hero {
         flex-direction: column;
-        padding: 0 24px 0;
-        gap: 36px;
+        padding: 80px 24px 48px;
+        gap: 40px;
         align-items: flex-start;
-        flex: none;
+        min-height: auto;
       }
 
-      .hero-left {
-        gap: 18px;
-        width: 100%;
-      }
+      .hero-tagline { max-width: 100%; }
 
-      .hero-headline {
-        font-size: clamp(34px, 9vw, 46px);
-      }
-
-      .hero-tagline {
-        font-size: 16px;
-        max-width: 100%;
-      }
-
-      /* ── clean stacked form on mobile ── */
-      .signup-form {
-        flex-direction: column;
-        gap: 10px;
-        max-width: 100%;
-        width: 100%;
-      }
-
-      .signup-form input {
-        width: 100%;
-        height: auto;
-        min-height: 54px;
-        padding: 16px 18px;
-        font-size: 16px; /* prevents iOS auto-zoom */
-        line-height: 1.2;
-        border-radius: 12px;
-      }
-
-      .signup-form button {
-        width: 100%;
-        height: auto;
-        min-height: 54px;
-        padding: 16px 18px;
-        font-size: 16px;
-        border-radius: 12px;
-      }
-
-      .signup-note { font-size: 12px; }
-
-      /* ── phone: full phone visible, centered, scrollable ── */
       .hero-right {
         width: 100%;
         justify-content: center;
-        align-items: flex-start; /* anchor to top so bezel shows first */
-        overflow: visible;
-        max-height: none;
-        -webkit-mask-image: none;
-        mask-image: none;
       }
 
-      .phone {
-        width: 260px;
-        border-radius: 40px;
+      .phone { width: 260px; }
+
+      .section { padding: 64px 24px; }
+      .love-section { padding: 64px 24px; }
+      .bottom-line { padding: 64px 24px; }
+
+      .steps { grid-template-columns: 1fr; gap: 20px; }
+      .love-grid { grid-template-columns: 1fr; gap: 16px; }
+
+      .floating-bar { padding: 10px 16px 10px; }
+
+      .floating-bar form {
+        flex-direction: column;
+        gap: 10px;
       }
 
-      .balance-amount { font-size: 24px; }
+      .floating-bar input {
+        width: 100%;
+        height: auto;
+        min-height: 52px;
+        padding: 14px 18px;
+        font-size: 16px;
+        line-height: 1.2;
+      }
+
+      .floating-bar button {
+        width: 100%;
+        height: auto;
+        min-height: 52px;
+        padding: 14px 18px;
+        font-size: 16px;
+      }
+
+      body { padding-bottom: 160px; }
     }
 
-    @media (max-width: 390px) {
-      .phone { width: 230px; }
+    @media (max-width: 480px) {
+      .phone { width: 240px; }
+      .balance-amount { font-size: 24px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <span class="nav-logo">Charlie</span>
   </nav>
 
-  <section class="hero">
-
-    <!-- LEFT: copy + form -->
-    <div class="hero-left">
-      <p class="eyebrow">Coming Fall 2026</p>
-
-      <h1 class="hero-headline">
-        Stop tracking.<br>
-        Start deciding.
-      </h1>
-
-      <p class="hero-tagline">
-        Charlie is built for the gap between knowing and doing. That's where financial lives actually fall apart.
-      </p>
-
-      <div class="signup-wrap">
-        <div class="signup-form" id="signupForm">
-          <input type="email" id="emailInput" placeholder="Enter your email" autocomplete="email" />
-          <button type="button" onclick="handleSignup()">Get early access</button>
-        </div>
-        <div class="signup-success" id="signupSuccess">
-          You're on the list. Charlie will reach out when it has something worth saying.
-        </div>
-        <p class="signup-note">No spam. Charlie only speaks when it has something to do.</p>
+  <!-- HERO -->
+  <section style="background: var(--navy);">
+    <div class="hero">
+      <div class="hero-left">
+        <p class="eyebrow">Coming Fall 2026</p>
+        <h1 class="hero-headline">
+          Meet Charlie: The Money App That Actually Does The Work For You.
+        </h1>
+        <p class="hero-tagline">
+          Charlie is built for the gap between knowing and doing. That's where financial lives actually fall apart.
+        </p>
       </div>
-    </div>
-
-    <!-- RIGHT: phone mockup -->
-    <div class="hero-right">
-      <div class="phone">
-        <div class="phone-screen">
-          <!-- status bar -->
-          <div class="phone-status">
-            <span class="time">9:41</span>
-            <div class="dynamic-island" style="position:absolute;left:50%;transform:translateX(-50%);top:14px;"></div>
-            <div class="icons">
-              <!-- signal -->
-              <svg viewBox="0 0 24 24"><rect x="2" y="14" width="4" height="8" rx="1"/><rect x="8" y="10" width="4" height="12" rx="1"/><rect x="14" y="6" width="4" height="16" rx="1" opacity=".4"/><rect x="20" y="2" width="4" height="20" rx="1" opacity=".2"/></svg>
-              <!-- wifi -->
-              <svg viewBox="0 0 24 24"><path d="M1.5 8.5a15 15 0 0121 0" fill="none" stroke="#14100A" stroke-width="2" stroke-linecap="round" opacity=".3"/><path d="M5 12a11 11 0 0114 0" fill="none" stroke="#14100A" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M8.5 15.5a6 6 0 017 0" fill="none" stroke="#14100A" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="19" r="1.5"/></svg>
-              <!-- battery -->
-              <svg viewBox="0 0 28 14"><rect x="1" y="1" width="23" height="12" rx="3" stroke="#14100A" stroke-width="1.5" fill="none"/><rect x="24" y="4" width="3" height="6" rx="1.5" fill="#14100A" opacity=".4"/><rect x="2.5" y="2.5" width="18" height="9" rx="2" fill="#14100A"/></svg>
+      <div class="hero-right">
+        <!-- Replace this block with Brendan's screenshot -->
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-status">
+              <span class="time">9:41</span>
+              <div class="dynamic-island"></div>
+              <div class="icons">
+                <svg viewBox="0 0 24 24"><rect x="2" y="14" width="4" height="8" rx="1"/><rect x="8" y="10" width="4" height="12" rx="1"/><rect x="14" y="6" width="4" height="16" rx="1" opacity=".4"/><rect x="20" y="2" width="4" height="20" rx="1" opacity=".2"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M1.5 8.5a15 15 0 0121 0" fill="none" stroke="#14100A" stroke-width="2" stroke-linecap="round" opacity=".3"/><path d="M5 12a11 11 0 0114 0" fill="none" stroke="#14100A" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M8.5 15.5a6 6 0 017 0" fill="none" stroke="#14100A" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="19" r="1.5"/></svg>
+                <svg viewBox="0 0 28 14"><rect x="1" y="1" width="23" height="12" rx="3" stroke="#14100A" stroke-width="1.5" fill="none"/><rect x="24" y="4" width="3" height="6" rx="1.5" fill="#14100A" opacity=".4"/><rect x="2.5" y="2.5" width="18" height="9" rx="2" fill="#14100A"/></svg>
+              </div>
+            </div>
+            <div class="app-content">
+              <div class="app-date">WED · MAR 25</div>
+              <div class="app-greeting">Hey Jordan 👋</div>
+              <div class="balance-card">
+                <div class="balance-label">Total Balance</div>
+                <div class="balance-amount">$12,480</div>
+                <div class="balance-badge">↑ $340 this month</div>
+                <div class="balance-grid">
+                  <div class="balance-item"><div class="balance-item-label">Checking</div><div class="balance-item-value">$3,240</div></div>
+                  <div class="balance-item"><div class="balance-item-label">Savings</div><div class="balance-item-value">$6,810</div></div>
+                  <div class="balance-item"><div class="balance-item-label">Invest</div><div class="balance-item-value">$2,430</div></div>
+                </div>
+              </div>
+              <div class="actions-header">
+                <span class="actions-label">Actions for you</span>
+                <span class="actions-badge">3</span>
+              </div>
+              <div class="action-card">
+                <span class="action-tag tag-move">Move Money</span>
+                <span class="action-time">Just now</span>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="action-body">Lighter bills this week — extra <strong>~$210 free.</strong> Move $90 and finish your emergency fund.</div>
+                <div class="action-buttons">
+                  <div class="btn-primary">Move $90 →</div>
+                  <div class="btn-secondary">Not now</div>
+                </div>
+              </div>
+              <div class="action-card">
+                <span class="action-tag tag-leak">Stop a Leak</span>
+                <span class="action-time">Yesterday</span>
+                <div class="action-body">Paramount+ billing <strong>$14.99/mo for 7 months</strong> — $105 total. Still using it?</div>
+                <div class="action-buttons">
+                  <div class="btn-cancel">Cancel it</div>
+                  <div class="btn-secondary">Keep it</div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <!-- app content -->
-          <div class="app-content">
-            <div class="app-date">WED · MAR 25</div>
-            <div class="app-greeting">Hey Jordan 👋</div>
-
-            <!-- balance card -->
-            <div class="balance-card">
-              <div class="balance-label">Total Balance</div>
-              <div class="balance-amount">$12,480</div>
-              <div class="balance-badge">↑ $340 this month</div>
-              <div class="balance-grid">
-                <div class="balance-item">
-                  <div class="balance-item-label">Checking</div>
-                  <div class="balance-item-value">$3,240</div>
-                </div>
-                <div class="balance-item">
-                  <div class="balance-item-label">Savings</div>
-                  <div class="balance-item-value">$6,810</div>
-                </div>
-                <div class="balance-item">
-                  <div class="balance-item-label">Invest</div>
-                  <div class="balance-item-value">$2,430</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- actions -->
-            <div class="actions-header">
-              <span class="actions-label">Actions for you</span>
-              <span class="actions-badge">3</span>
-            </div>
-
-            <div class="action-card">
-              <span class="action-tag tag-move">Move Money</span>
-              <span class="action-time">Just now</span>
-              <div class="progress-bar"><div class="progress-fill"></div></div>
-              <div class="action-body">Lighter bills this week — extra <strong>~$210 free.</strong> Move $90 and finish your emergency fund.</div>
-              <div class="action-buttons">
-                <div class="btn-primary">Move $90 →</div>
-                <div class="btn-secondary">Not now</div>
-              </div>
-            </div>
-
-            <div class="action-card">
-              <span class="action-tag tag-leak">Stop a Leak</span>
-              <span class="action-time">Yesterday</span>
-              <div class="action-body">Paramount+ billing <strong>$14.99/mo for 7 months</strong> — $105 total. Still using it?</div>
-              <div class="action-buttons">
-                <div class="btn-cancel">Cancel it</div>
-                <div class="btn-secondary">Keep it</div>
-              </div>
-            </div>
-
-          </div>
         </div>
+        <!-- End Brendan's screenshot placeholder -->
       </div>
     </div>
-
   </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" style="background: var(--off-white);">
+    <div class="section-inner">
+      <p class="section-label">How it works</p>
+      <h2 class="section-headline">In 3 Simple Steps</h2>
+      <div class="steps">
+
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-title">It Finds the Extra Cash</div>
+          <p class="step-body">When you get paid or have a little extra money left over, Charlie does the math for you. You just tap once, and it's done.</p>
+          <div class="step-example">"Hey, you've got $90 extra. Want to put it in your savings?"</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-title">It Stops the "Leaks"</div>
+          <p class="step-body">Ever pay for a streaming service you forgot you had? Charlie finds those leaks and puts the cancel button right in front of you.</p>
+          <div class="step-example">"You haven't used Paramount+ in 7 months. Want to cancel it?"</div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-title">It Fixes Your Habits</div>
+          <p class="step-body">Instead of saying "you're bad at budgeting," Charlie gives you a game plan. Tap yes, and you're already back on track.</p>
+          <div class="step-example">"Stay under $40 on lunch this week to get back on track. Want a reminder?"</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY YOU'LL LOVE IT -->
+  <section class="love-section">
+    <div class="love-inner">
+      <p class="section-label">Why you'll love it</p>
+      <h2 class="section-headline" style="color: var(--white);">Built different. On purpose.</h2>
+      <div class="love-grid">
+
+        <div class="love-card">
+          <div class="love-icon">🧮</div>
+          <div class="love-title">No Homework</div>
+          <p class="love-body">Charlie does all the math. You never have to open a spreadsheet, run a calculation, or figure out what to do with your money.</p>
+        </div>
+
+        <div class="love-card">
+          <div class="love-icon">👆</div>
+          <div class="love-title">One Tap</div>
+          <p class="love-body">Every time Charlie talks to you, there's a button to fix the problem instantly. No menus. No flows. One tap and it's handled.</p>
+        </div>
+
+        <div class="love-card">
+          <div class="love-icon">🔇</div>
+          <div class="love-title">Total Silence</div>
+          <p class="love-body">No weekly reports. No pointless notifications. Charlie only pings you when there's actual money to be moved or saved.</p>
+        </div>
+
+        <div class="love-card">
+          <div class="love-icon">📈</div>
+          <div class="love-title">Results First</div>
+          <p class="love-body">Charlie doesn't care how much time you spend in the app. It only cares about how much money it saved you.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE BOTTOM LINE -->
+  <section class="bottom-line">
+    <div class="bottom-line-inner">
+      <p class="section-label">The Bottom Line</p>
+      <p class="bottom-line-quote">
+        Most apps are like a map — they show you where you are. Charlie is like a driver — <em>it actually takes you where you want to go.</em>
+      </p>
+      <p class="bottom-line-cta">Move money. Stop leaks. Get rich.</p>
+    </div>
+  </section>
+
+  <!-- FLOATING EARLY ACCESS BAR -->
+  <div class="floating-bar" id="floatingBar">
+    <form id="floatingForm" onsubmit="handleFloatingSignup(event)">
+      <input
+        type="tel"
+        id="phoneInput"
+        placeholder="Enter your phone number"
+        autocomplete="tel"
+        inputmode="tel"
+      />
+      <button type="submit">Get early access</button>
+    </form>
+    <div class="floating-success" id="floatingSuccess">
+      You're on the list. Charlie will reach out when it has something worth saying. 🎉
+    </div>
+  </div>
 
   <script>
     const LOOPS_ENDPOINT = 'https://app.loops.so/api/newsletter-form/cmngr5geq18m00itg98iokqgh';
 
-    async function submitToLoops(email, formEl, successEl) {
-      formEl.style.display = 'none';
-      successEl.style.display = 'block';
-      try {
-        await fetch(LOOPS_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({ email })
-        });
-      } catch (e) {
-        // silent fail — user already sees success state
-      }
-    }
-
-    function handleSignup() {
-      const input = document.getElementById('emailInput');
-      const form = document.getElementById('signupForm');
-      const success = document.getElementById('signupSuccess');
-      if (!input.value || !input.value.includes('@')) {
+    function handleFloatingSignup(e) {
+      e.preventDefault();
+      const input = document.getElementById('phoneInput');
+      const form = document.getElementById('floatingForm');
+      const success = document.getElementById('floatingSuccess');
+      const val = input.value.trim().replace(/\D/g, '');
+      if (val.length < 7) {
         input.style.borderColor = 'rgba(255,100,100,0.7)';
         input.focus();
         setTimeout(() => { input.style.borderColor = ''; }, 1500);
         return;
       }
-      submitToLoops(input.value, form, success);
+      form.style.display = 'none';
+      success.style.display = 'block';
+      // Send to Loops as a contact with phone property
+      try {
+        fetch(LOOPS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ email: val + '@phone.waitlist', phone: input.value.trim() })
+        });
+      } catch (_) {}
     }
-
-    document.getElementById('emailInput').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') handleSignup();
-    });
   </script>
 
 </body>
