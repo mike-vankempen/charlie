@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CBRH36NWC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CBRH36NWC');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Charlie — The Money App That Actually Does The Work For You</title>
@@ -656,6 +664,9 @@ function handleSubmit() {
     form.style.display = 'none';
     if (fine) fine.style.display = 'none';
     success.style.display = 'block';
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'waitlist_signup', { method: 'phone' });
+    }
     try {
       fetch(LOOPS_ENDPOINT, {
         method: 'POST',
