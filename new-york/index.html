@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Money App for New Yorkers — Charlie</title>
+<meta name="description" content="Charlie is the money app built for the financial reality of living in New York. Automatically move money, cancel wasteful subscriptions, and actually build wealth.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getcharlie.co/new-york">
+<meta property="og:title" content="Best Money App for New Yorkers — Charlie">
+<meta property="og:description" content="Charlie is the money app built for New York. Move money, stop leaks, get rich.">
+<meta property="og:image" content="https://getcharlie.co/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://getcharlie.co/og-image.png">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KWNQRN9GS2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KWNQRN9GS2');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Charlie",
+  "url": "https://getcharlie.co",
+  "description": "The money app that actually does the work for you — built for New Yorkers.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "iOS, Android",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "Charlie", "url": "https://getcharlie.co" }
+}
+</script>
+
+<style>
+  :root {
+    --blue: #0D1460;
+    --cream: #F5F0E8;
+    --ink: #1A1410;
+    --sand: #EDE7D9;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(13,20,96,0.95);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px; color: var(--cream);
+    text-decoration: none;
+  }
+  .nav-cta {
+    background: var(--cream); color: var(--blue);
+    border: none; border-radius: 100px;
+    padding: 10px 22px; font-size: 14px; font-weight: 500;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--blue);
+    padding: 140px 40px 100px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(245,240,232,0.6);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(40px, 7vw, 72px);
+    color: var(--cream); line-height: 1.1;
+    max-width: 800px; margin: 0 auto 24px;
+  }
+  .hero h1 em { font-style: italic; color: rgba(245,240,232,0.7); }
+  .hero-sub {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: rgba(245,240,232,0.7);
+    max-width: 560px; margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+  .hero-form {
+    display: flex; gap: 12px; justify-content: center;
+    flex-wrap: wrap; max-width: 480px; margin: 0 auto;
+  }
+  .hero-input {
+    flex: 1; min-width: 220px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(245,240,232,0.2);
+    border-radius: 100px; padding: 16px 24px;
+    font-size: 16px; color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    outline: none; -webkit-appearance: none; appearance: none;
+  }
+  .hero-input::placeholder { color: rgba(245,240,232,0.4); }
+  .hero-input:focus { border-color: rgba(245,240,232,0.5); }
+  .hero-btn {
+    background: var(--cream); color: var(--blue);
+    border: none; border-radius: 100px;
+    padding: 16px 28px; font-size: 15px; font-weight: 500;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+  }
+  .hero-fine {
+    font-size: 13px; color: rgba(245,240,232,0.4);
+    margin-top: 16px;
+  }
+  .success-msg {
+    display: none; color: var(--cream);
+    font-size: 18px; margin-top: 8px;
+  }
+
+  /* STATS */
+  .stats {
+    background: var(--sand);
+    padding: 64px 40px;
+    display: flex; justify-content: center; gap: 80px;
+    flex-wrap: wrap; text-align: center;
+  }
+  .stat-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 48px; color: var(--blue); line-height: 1;
+  }
+  .stat-label {
+    font-size: 14px; color: rgba(26,20,16,0.6);
+    margin-top: 8px; max-width: 160px;
+  }
+
+  /* SECTION */
+  section {
+    padding: 100px 40px;
+    max-width: 900px; margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(26,20,16,0.4);
+    margin-bottom: 20px;
+  }
+  .section-headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.15; margin-bottom: 24px;
+  }
+  .section-headline em { font-style: italic; color: rgba(26,20,16,0.45); }
+  .section-body {
+    font-size: 18px; line-height: 1.7;
+    color: rgba(26,20,16,0.75); max-width: 680px;
+  }
+  .section-body p + p { margin-top: 20px; }
+
+  /* FEATURES */
+  .features {
+    background: var(--blue);
+    padding: 100px 40px;
+  }
+  .features-inner { max-width: 900px; margin: 0 auto; }
+  .features-headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: var(--cream); line-height: 1.15;
+    margin-bottom: 56px; max-width: 600px;
+  }
+  .features-headline em { font-style: italic; color: rgba(245,240,232,0.5); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .feat {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(245,240,232,0.1);
+    border-radius: 16px; padding: 32px;
+  }
+  .feat-icon { font-size: 28px; margin-bottom: 16px; }
+  .feat-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px; color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .feat-body {
+    font-size: 15px; line-height: 1.65;
+    color: rgba(245,240,232,0.6);
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    padding: 120px 40px;
+    text-align: center;
+    background: var(--cream);
+  }
+  .cta-headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.1; margin-bottom: 20px;
+  }
+  .cta-headline em { font-style: italic; color: rgba(26,20,16,0.4); }
+  .cta-sub {
+    font-size: 18px; color: rgba(26,20,16,0.6);
+    margin-bottom: 40px; max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .cta-form {
+    display: flex; gap: 12px; justify-content: center;
+    flex-wrap: wrap; max-width: 480px; margin: 0 auto;
+  }
+  .cta-input {
+    flex: 1; min-width: 220px;
+    background: rgba(13,20,96,0.06);
+    border: 1px solid rgba(13,20,96,0.15);
+    border-radius: 100px; padding: 16px 24px;
+    font-size: 16px; color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    outline: none; -webkit-appearance: none; appearance: none;
+  }
+  .cta-input::placeholder { color: rgba(26,20,16,0.35); }
+  .cta-input:focus { border-color: rgba(13,20,96,0.4); }
+  .cta-btn {
+    background: var(--blue); color: var(--cream);
+    border: none; border-radius: 100px;
+    padding: 16px 28px; font-size: 15px; font-weight: 500;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+  }
+  .cta-fine {
+    font-size: 13px; color: rgba(26,20,16,0.4);
+    margin-top: 16px;
+  }
+  .cta-success {
+    display: none; font-size: 18px;
+    color: var(--blue); margin-top: 8px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink); color: rgba(245,240,232,0.5);
+    padding: 40px; text-align: center;
+    font-size: 13px;
+  }
+  footer a { color: rgba(245,240,232,0.5); text-decoration: none; margin: 0 12px; }
+  .footer-logo {
+    font-family: 'Instrument Serif', serif;
+    color: var(--cream); font-size: 20px;
+    display: block; margin-bottom: 16px;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 120px 24px 80px; }
+    .stats { gap: 40px; padding: 48px 24px; }
+    section { padding: 72px 24px; }
+    .features { padding: 72px 24px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 80px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Charlie</a>
+  <a class="nav-cta" href="#waitlist">Join waitlist</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="waitlist">
+  <p class="hero-eyebrow">Now available in New York</p>
+  <h1>The money app built for the <em>New York hustle</em></h1>
+  <p class="hero-sub">You're working harder than ever and still watching your money disappear. Charlie fixes that — automatically.</p>
+  <div class="hero-form" id="heroForm">
+    <input class="hero-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="Enter your phone number" id="heroInput" style="-webkit-appearance:none;appearance:none;">
+    <button class="hero-btn" onclick="handleHeroSubmit()">Get early access</button>
+  </div>
+  <div class="success-msg" id="heroSuccess">🎉 You're on the list. We'll be in touch.</div>
+  <p class="hero-fine">No spam. Only when there's something worth saying.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div>
+    <div class="stat-num">$3,100</div>
+    <div class="stat-label">Average monthly rent in NYC</div>
+  </div>
+  <div>
+    <div class="stat-num">68%</div>
+    <div class="stat-label">of New Yorkers live paycheck to paycheck</div>
+  </div>
+  <div>
+    <div class="stat-num">$840</div>
+    <div class="stat-label">wasted yearly on unused subscriptions</div>
+  </div>
+</div>
+
+<!-- PROBLEM SECTION -->
+<section>
+  <p class="section-eyebrow">The problem</p>
+  <h2 class="section-headline">New York is expensive. Your money app <em>isn't helping</em>.</h2>
+  <div class="section-body">
+    <p>You make decent money. You know what you should be doing — saving more, spending less, investing something. But at the end of every month, you open your banking app and wonder where it all went.</p>
+    <p>Most money apps show you the problem. Charts of your spending. Breakdowns of your categories. More data to feel bad about. Charlie does something different: it acts. When you have extra cash, it moves it. When you're paying for something you forgot about, it flags it. When there's an opportunity, it tells you — and then helps you take it.</p>
+    <p>Built for the pace of New York. Not for people who have time to obsess over spreadsheets.</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="features-inner">
+    <h2 class="features-headline">Everything you need. <em>None of the work.</em></h2>
+    <div class="features-grid">
+      <div class="feat">
+        <div class="feat-icon">⚡</div>
+        <div class="feat-title">Auto money moves</div>
+        <div class="feat-body">Charlie spots when you have extra cash — lighter bills, a bonus, a slow spending week — and moves it to savings before you spend it on something you'll regret.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🔍</div>
+        <div class="feat-title">Subscription audit</div>
+        <div class="feat-body">The average New Yorker wastes $70/month on subscriptions they forgot about. Charlie finds them and helps you cut the ones you don't use.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📈</div>
+        <div class="feat-title">Wealth building on autopilot</div>
+        <div class="feat-body">Saving money is step one. Charlie identifies the right moves to actually grow your net worth — without requiring a finance degree.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🧠</div>
+        <div class="feat-title">Knows your life</div>
+        <div class="feat-body">Rent is due the 1st. Your paycheck hits on the 15th. Charlie understands your cash flow and works around it — not against it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT SECTION -->
+<section>
+  <p class="section-eyebrow">Why New York is different</p>
+  <h2 class="section-headline">A city that demands more from your money</h2>
+  <div class="section-body">
+    <p>Living in New York means your financial decisions move faster and hit harder than anywhere else. A delayed emergency fund isn't just stressful — it's one bad month away from a real crisis. A forgotten subscription isn't $10 wasted, it's $10 you needed for something else.</p>
+    <p>Charlie was built with that reality in mind. It doesn't just track where you've been — it helps you get ahead. Fall 2026.</p>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<div class="cta-section">
+  <h2 class="cta-headline">Ready to stop <em>wondering</em> where your money went?</h2>
+  <p class="cta-sub">Join New Yorkers getting early access to Charlie this fall.</p>
+  <div class="cta-form" id="ctaForm">
+    <input class="cta-input" type="tel" inputmode="tel" autocomplete="tel" placeholder="Enter your phone number" id="ctaInput" style="-webkit-appearance:none;appearance:none;">
+    <button class="cta-btn" onclick="handleCtaSubmit()">Join the waitlist</button>
+  </div>
+  <div class="cta-success" id="ctaSuccess">🎉 You're on the list.</div>
+  <p class="cta-fine">No spam. Only when there's something worth saying.</p>
+</div>
+
+<footer>
+  <span class="footer-logo">Charlie</span>
+  <div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:hello@getcharlie.co">Contact</a></div>
+  <div style="margin-top:12px">© 2026 Charlie. All rights reserved.</div>
+</footer>
+
+<script>
+const LOOPS_ENDPOINT = 'https://app.loops.so/api/newsletter-form/cmngr5geq18m00itg98iokqgh';
+
+function submitPhone(inputId, formId, successId) {
+  const input = document.getElementById(inputId);
+  const form = document.getElementById(formId);
+  const success = document.getElementById(successId);
+  const val = input.value.trim().replace(/\D/g, '');
+  if (val.length >= 7) {
+    form.style.display = 'none';
+    success.style.display = 'block';
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'waitlist_signup', { method: 'phone', page: 'new-york' });
+    }
+    try {
+      fetch(LOOPS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ email: val + '@phone.waitlist', phone: input.value.trim() })
+      });
+    } catch(_) {}
+  } else {
+    input.style.borderColor = 'rgba(201,64,64,0.6)';
+    input.focus();
+    setTimeout(() => { input.style.borderColor = ''; }, 2000);
+  }
+}
+
+function handleHeroSubmit() { submitPhone('heroInput', 'heroForm', 'heroSuccess'); }
+function handleCtaSubmit() { submitPhone('ctaInput', 'ctaForm', 'ctaSuccess'); }
+
+document.getElementById('heroInput').addEventListener('keydown', e => { if (e.key === 'Enter') handleHeroSubmit(); });
+document.getElementById('ctaInput').addEventListener('keydown', e => { if (e.key === 'Enter') handleCtaSubmit(); });
+</script>
+</body>
+</html>

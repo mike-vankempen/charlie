@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Charlie</title>
+<meta name="description" content="Practical personal finance for people who live in the real world. Tips, guides, and insights from the Charlie team.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getcharlie.co/blog">
+<meta property="og:title" content="Blog — Charlie">
+<meta property="og:image" content="https://getcharlie.co/og-image.png">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KWNQRN9GS2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KWNQRN9GS2');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --blue: #0D1460;
+    --cream: #F5F0E8;
+    --ink: #1A1410;
+    --sand: #EDE7D9;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream); color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(13,20,96,0.95);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px; color: var(--cream); text-decoration: none;
+  }
+  .nav-cta {
+    background: var(--cream); color: var(--blue);
+    border: none; border-radius: 100px;
+    padding: 10px 22px; font-size: 14px; font-weight: 500;
+    cursor: pointer; font-family: 'DM Sans', sans-serif; text-decoration: none;
+  }
+  .page-hero {
+    background: var(--blue); padding: 140px 40px 80px; text-align: center;
+  }
+  .page-hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(40px, 6vw, 64px);
+    color: var(--cream); line-height: 1.1; margin-bottom: 16px;
+  }
+  .page-hero p {
+    font-size: 18px; color: rgba(245,240,232,0.65); max-width: 480px; margin: 0 auto;
+  }
+  .posts {
+    max-width: 860px; margin: 0 auto;
+    padding: 80px 40px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+  }
+  .post-card {
+    background: white; border-radius: 20px;
+    border: 1px solid rgba(13,20,96,0.08);
+    padding: 32px; text-decoration: none; color: var(--ink);
+    display: flex; flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .post-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(13,20,96,0.1); }
+  .post-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(26,20,16,0.4);
+    margin-bottom: 14px;
+  }
+  .post-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px; line-height: 1.25; margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .post-excerpt {
+    font-size: 15px; line-height: 1.65;
+    color: rgba(26,20,16,0.6); flex: 1; margin-bottom: 24px;
+  }
+  .post-meta {
+    font-size: 13px; color: rgba(26,20,16,0.4);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .post-arrow { color: var(--blue); font-size: 18px; }
+  footer {
+    background: var(--ink); color: rgba(245,240,232,0.5);
+    padding: 40px; text-align: center; font-size: 13px;
+  }
+  footer a { color: rgba(245,240,232,0.5); text-decoration: none; margin: 0 12px; }
+  .footer-logo {
+    font-family: 'Instrument Serif', serif;
+    color: var(--cream); font-size: 20px; display: block; margin-bottom: 16px;
+  }
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .page-hero { padding: 120px 24px 64px; }
+    .posts { grid-template-columns: 1fr; padding: 48px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Charlie</a>
+  <a class="nav-cta" href="/#waitlist">Join waitlist</a>
+</nav>
+
+<div class="page-hero">
+  <h1>The Charlie Blog</h1>
+  <p>Personal finance for people who live in the real world.</p>
+</div>
+
+<div class="posts">
+  <a class="post-card" href="/blog/why-you-cant-save-money-new-york">
+    <div class="post-tag">Personal Finance · New York</div>
+    <div class="post-title">Why you can never save money living in New York</div>
+    <div class="post-excerpt">You make more than you ever thought you would — and still have nothing left at the end of the month. Here's why that happens and what actually fixes it.</div>
+    <div class="post-meta"><span>April 2026 · 6 min read</span><span class="post-arrow">→</span></div>
+  </a>
+  <a class="post-card" href="/blog/best-budgeting-apps-new-york">
+    <div class="post-tag">App Reviews · New York</div>
+    <div class="post-title">Best budgeting apps for New Yorkers in 2026</div>
+    <div class="post-excerpt">We compared the top money apps available today and evaluated each one for life in a high-cost city. Here's what actually works — and what most apps get wrong.</div>
+    <div class="post-meta"><span>April 2026 · 8 min read</span><span class="post-arrow">→</span></div>
+  </a>
+</div>
+
+<footer>
+  <span class="footer-logo">Charlie</span>
+  <div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:hello@getcharlie.co">Contact</a></div>
+  <div style="margin-top:12px">© 2026 Charlie. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
