@@ -236,6 +236,75 @@
     .inline-cta { padding: 36px 24px; }
     .related { padding: 48px 24px; }
   }
+
+/* MOBILE STICKY BANNER */
+.mobile-banner {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+  background: var(--blue); padding: 14px 20px 20px;
+  box-shadow: 0 -4px 20px rgba(13,20,96,0.25);
+  align-items: center; gap: 10px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.mobile-banner.visible { transform: translateY(0); }
+@media (max-width: 768px) { .mobile-banner { display: flex; } }
+.mobile-banner-form { display: flex; gap: 8px; flex: 1; align-items: center; }
+.mobile-banner input {
+  flex: 1; background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(245,240,232,0.2);
+  border-radius: 100px; padding: 11px 16px;
+  font-size: 15px; color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  outline: none; -webkit-appearance: none; appearance: none; min-width: 0;
+}
+.mobile-banner input::placeholder { color: rgba(245,240,232,0.4); }
+.mobile-banner .submit-btn {
+  background: var(--cream); color: var(--blue);
+  border: none; border-radius: 100px;
+  padding: 11px 18px; font-size: 14px; font-weight: 500;
+  cursor: pointer; font-family: 'DM Sans', sans-serif; white-space: nowrap;
+}
+.mobile-banner-close {
+  background: none; border: none; color: rgba(245,240,232,0.4);
+  font-size: 16px; cursor: pointer; padding: 4px; flex-shrink: 0;
+}
+.mobile-banner-success { display: none; color: var(--cream); font-size: 14px; flex: 1; text-align: center; }
+
+/* BLOG AUTHOR FOOTER */
+.blog-end {
+  background: var(--sand);
+  padding: 64px 40px;
+  border-top: 1px solid rgba(13,20,96,0.08);
+}
+.blog-end-inner {
+  max-width: 680px; margin: 0 auto;
+  display: flex; gap: 32px; align-items: flex-start;
+  flex-wrap: wrap;
+}
+.blog-end-back {
+  font-size: 14px; color: rgba(26,20,16,0.5);
+  text-decoration: none; display: block; margin-bottom: 32px;
+}
+.blog-end-back:hover { color: var(--blue); }
+.blog-end-logo {
+  font-family: 'Instrument Serif', serif;
+  font-size: 32px; color: var(--blue); flex-shrink: 0;
+}
+.blog-end-text h4 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px; margin-bottom: 10px; color: var(--ink);
+}
+.blog-end-text p {
+  font-size: 15px; line-height: 1.65;
+  color: rgba(26,20,16,0.6); margin-bottom: 16px;
+}
+.blog-end-link {
+  font-size: 14px; font-weight: 500; color: var(--blue);
+  text-decoration: none;
+}
+.blog-end-link:hover { text-decoration: underline; }
+@media (max-width: 768px) { .blog-end { padding: 48px 24px; } }
 </style>
 </head>
 <body>
@@ -392,6 +461,21 @@
   </div>
 </div>
 
+<!-- BLOG END SECTION -->
+<div class="blog-end">
+  <div style="max-width:680px;margin:0 auto;">
+    <a class="blog-end-back" href="/blog">← Back to all posts</a>
+    <div class="blog-end-inner">
+      <div class="blog-end-logo">C</div>
+      <div class="blog-end-text">
+        <h4>Written by the Charlie team</h4>
+        <p>Charlie is a personal finance app launching fall 2026. We write about money, behavior, and the gap between knowing what you should do and actually doing it.</p>
+        <a class="blog-end-link" href="/">Learn more about Charlie →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <span class="footer-logo">Charlie</span>
   <div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:hello@getcharlie.co">Contact</a></div>
@@ -430,5 +514,51 @@ document.getElementById('inlineInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') handleInlineSubmit();
 });
 </script>
+
+<!-- MOBILE STICKY BANNER -->
+<div class="mobile-banner" id="mobileBanner">
+  <div class="mobile-banner-form" id="bannerForm">
+    <input type="tel" inputmode="tel" autocomplete="tel" placeholder="Your phone number" id="bannerInput" style="-webkit-appearance:none;appearance:none;">
+    <button class="submit-btn" onclick="handleBannerSubmit()">Join waitlist</button>
+  </div>
+  <div class="mobile-banner-success" id="bannerSuccess">🎉 You're on the list!</div>
+  <button class="mobile-banner-close" onclick="dismissBanner()">✕</button>
+</div>
+<script>
+(function() {
+  var banner = document.getElementById('mobileBanner');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) banner.classList.add('visible');
+  }, { passive: true });
+})();
+function dismissBanner() {
+  var b = document.getElementById('mobileBanner');
+  b.classList.remove('visible');
+  setTimeout(function(){ b.style.display='none'; }, 300);
+}
+function handleBannerSubmit() {
+  var input = document.getElementById('bannerInput');
+  var form = document.getElementById('bannerForm');
+  var success = document.getElementById('bannerSuccess');
+  var val = input.value.trim().replace(/\D/g, '');
+  if (val.length >= 7) {
+    form.style.display = 'none';
+    success.style.display = 'block';
+    if (typeof gtag !== 'undefined') gtag('event', 'waitlist_signup', { method: 'phone', location: 'mobile_banner' });
+    try {
+      fetch('https://app.loops.so/api/newsletter-form/cmngr5geq18m00itg98iokqgh', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ email: val + '@phone.waitlist', phone: input.value.trim() })
+      });
+    } catch(_) {}
+  } else {
+    input.style.borderColor = 'rgba(201,64,64,0.6)';
+    input.focus();
+    setTimeout(function(){ input.style.borderColor = ''; }, 2000);
+  }
+}
+</script>
+
 </body>
 </html>
