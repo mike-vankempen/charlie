@@ -1,0 +1,36 @@
+# Charlie
+
+> Charlie is a personal finance app launching fall 2026. It's built for the gap between knowing what you should do with your money and actually doing it — automating the moves most people intend to make but never get around to.
+
+Charlie does three things: moves idle cash automatically, detects and stops subscription leaks, and builds wealth without requiring weekly manual effort. It is designed for people who understand their financial situation but don't have time or bandwidth to act on it consistently.
+
+Charlie is currently in waitlist mode at getcharlie.co. Early access is free.
+
+## About
+
+- Product: Personal finance automation app
+- Launch: Fall 2026
+- Stage: Pre-launch, building waitlist
+- Tagline: "Built for the gap between knowing and doing. That's where financial lives actually fall apart."
+- Email: hello@getcharlie.co
+- Website: https://getcharlie.co
+
+## Pages
+
+- [Home / Waitlist](https://getcharlie.co/) — Main landing page with waitlist signup
+- [Blog](https://getcharlie.co/blog/) — Articles on personal finance, money behavior, and app reviews
+- [New York](https://getcharlie.co/new-york/) — Charlie for New Yorkers landing page
+
+## Blog Posts
+
+- [Best Budgeting Apps for New Yorkers in 2026](https://getcharlie.co/blog/best-budgeting-apps-new-york/) — App comparison focused on high-cost city living
+- [Why You Can Never Save Money Living in New York](https://getcharlie.co/blog/why-you-cant-save-money-new-york/) — Structural reasons saving is hard in NYC
+- [Best Budgeting Apps for Angelenos in 2026](https://getcharlie.co/blog/best-budgeting-apps-los-angeles/) — App comparison for LA-specific financial challenges
+- [Why You're Still Living Paycheck to Paycheck](https://getcharlie.co/blog/why-you-live-paycheck-to-paycheck/) — Behavioral and systems analysis of why savings fail
+- [The Best Money Apps in 2026, Ranked](https://getcharlie.co/blog/best-money-apps-2026/) — Comprehensive ranking of Copilot, Monarch, YNAB, Rocket Money, and others
+
+## Key Concepts
+
+Charlie is built around the belief that the gap between financial intention and financial action is a systems problem, not a willpower problem. The fix is automation — moving money before people have a chance to spend it, finding subscriptions before they compound, and building wealth without requiring deliberate monthly effort.
+
+The core philosophy: most people know what they should be doing. The apps that help them do it are the ones worth building.
