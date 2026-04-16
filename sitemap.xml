@@ -13,6 +13,19 @@
     <priority>0.8</priority>
   </url>
 
+
+  <url>
+    <loc>https://getcharlie.co/chicago/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://getcharlie.co/los-angeles/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://getcharlie.co/blog/</loc>
     <changefreq>weekly</changefreq>
