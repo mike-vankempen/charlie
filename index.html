@@ -63,6 +63,8 @@ nav {
   border-bottom: 1px solid rgba(26,20,16,0.06);
 }
 .nav-logo { height: 22px; }
+.nav-logo-text { font-family: "Instrument Serif", serif; font-size: 22px; font-weight: 400; color: var(--navy); text-decoration: none; letter-spacing: -0.01em; }
+.footer-logo-text { font-family: "Instrument Serif", serif; font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.6); letter-spacing: -0.01em; }
 .nav-pill {
   background: var(--blue); color: #fff;
   font-size: 13px; font-weight: 600;
@@ -597,7 +599,7 @@ footer {
     "@type": "Organization",
     "name": "Charlie",
     "url": "https://getcharlie.co",
-    "logo": "https://getcharlie.co/og-image.png"
+    "logo": "https://getcharlie.co/logo-512.png"
   }
 }
 </script>
@@ -610,7 +612,7 @@ footer {
 
 <!-- ── NAV ── -->
 <nav>
-  <img class="nav-logo" src="LOGO_PLACEHOLDER" alt="Charlie">
+  <a class="nav-logo-text" href="/">Charlie</a>
   <button class="nav-pill" onclick="document.querySelector('.cta-section').scrollIntoView({behavior:'smooth'})">Get early access</button>
 </nav>
 
@@ -783,7 +785,7 @@ footer {
 <!-- ── FOOTER ── -->
 
 <footer>
-  <img class="footer-logo" src="LOGO_PLACEHOLDER" alt="Charlie">
+  <span class="footer-logo-text">Charlie</span>
   <div class="footer-links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
