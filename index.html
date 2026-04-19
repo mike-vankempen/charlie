@@ -579,6 +579,52 @@ footer {
   font-size: 16px; cursor: pointer; padding: 4px; flex-shrink: 0;
 }
 .mobile-banner-success { display: none; color: var(--cream); font-size: 14px; flex: 1; text-align: center; }
+
+/* Waitlist counter pill */
+.waitlist-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 50px;
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+}
+.waitlist-dot-wrap {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+.wdot-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #4ade80;
+  opacity: 0.3;
+  animation: wdotRing 2s ease-in-out infinite;
+}
+.wdot {
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: #4ade80;
+}
+@keyframes wdotRing {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50%       { transform: scale(2.4); opacity: 0; }
+}
+#waitlistCount {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s;
+}
+.count-bump { color: #4ade80 !important; }
 </style>
 <!-- Schema Markup -->
 <script type="application/ld+json">
