@@ -622,7 +622,14 @@ footer {
   <h1 class="hero-headline">The money app that actually <em>does the work</em> for you.</h1>
   <div class="hero-ctas">
     <button class="btn-white" onclick="document.querySelector('.cta-section').scrollIntoView({behavior:'smooth'})">Get early access</button>
-    <button class="btn-ghost-white" onclick="document.querySelector('.hiw-section').scrollIntoView({behavior:'smooth'})">See how it works</button>
+    <div class="waitlist-pill">
+      <div class="waitlist-dots">
+        <div class="wdot" style="animation-delay:0s"></div>
+        <div class="wdot" style="animation-delay:.15s"></div>
+        <div class="wdot" style="animation-delay:.3s"></div>
+      </div>
+      <span><span id="waitlistCount">3,567</span> people on the waitlist</span>
+    </div>
   </div>
 
   <div class="hero-phone-wrap">
@@ -821,6 +828,7 @@ function handleSubmit() {
     success.style.display = 'block';
     if (typeof gtag !== 'undefined') {
       gtag('event', 'waitlist_signup', { method: 'phone' });
+      const wc = document.getElementById('waitlistCount'); if(wc){ const n = parseInt(wc.textContent.replace(/,/g,''))+1; wc.textContent = n.toLocaleString('en-US'); wc.classList.add('count-bump'); setTimeout(()=>wc.classList.remove('count-bump'),600); }
     }
     try {
       fetch(LOOPS_ENDPOINT, {
@@ -886,6 +894,47 @@ function handleBannerSubmit() {
     setTimeout(function(){ input.style.borderColor = ''; }, 2000);
   }
 }
+
+// Waitlist counter
+(function() {
+  const TARGET = 3567;
+  const el = document.getElementById('waitlistCount');
+  if (!el) return;
+
+  function fmt(n) { return n.toLocaleString('en-US'); }
+
+  let start = null;
+  const DURATION = 1800;
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function step(ts) {
+    if (!start) start = ts;
+    const elapsed = ts - start;
+    const progress = Math.min(elapsed / DURATION, 1);
+    el.textContent = fmt(Math.round(easeOut(progress) * TARGET));
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      el.textContent = fmt(TARGET);
+      startLiveUpdates();
+    }
+  }
+
+  setTimeout(() => requestAnimationFrame(step), 600);
+
+  function startLiveUpdates() {
+    let count = TARGET;
+    function tick() {
+      count += 1;
+      el.textContent = fmt(count);
+      el.classList.add('count-bump');
+      setTimeout(() => el.classList.remove('count-bump'), 600);
+      setTimeout(tick, 12000 + Math.random() * 8000);
+    }
+    setTimeout(tick, 8000 + Math.random() * 6000);
+  }
+})();
+
 </script>
 
 </body>
