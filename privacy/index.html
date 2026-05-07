@@ -109,79 +109,138 @@
 </div>
 
 <div class="content">
-  <span class="last-updated">Last updated: April 17, 2026</span>
+  <span class="last-updated">Last updated: May 7, 2026</span>
 
-  <p>Charlie Labs, Inc. ("Charlie," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at getcharlie.co and use our mobile application (collectively, the "Services"). Please read this policy carefully. If you disagree with its terms, please discontinue use of the Services.</p>
+  <p>Charlie Labs, Inc. ("Charlie Labs," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy covers all products and services published by Charlie Labs, including the <strong>Charlie</strong> personal finance app and website (getcharlie.co) and the <strong>Voyage</strong> iOS travel app, as well as any future products we release (collectively, the "Services"). Where a data practice applies only to a specific product, we say so. Please read this policy carefully. If you disagree with its terms, please discontinue use of the Services.</p>
 
   <h2>1. Information We Collect</h2>
-  <p>We collect information you provide directly to us, information collected automatically when you use the Services, and information from third-party sources.</p>
-  <p><strong>Information you provide:</strong></p>
+  <p>We collect information you provide directly to us, information generated automatically when you use the Services, and information from third-party sources. The specific data we collect depends on which Service you use.</p>
+
+  <p><strong>Identity and contact information</strong></p>
   <ul>
-    <li><strong>Contact information</strong> — name, email address, and phone number when you sign up for early access or create an account.</li>
-    <li><strong>Financial account information</strong> — when you connect a bank account or financial institution through our third-party data aggregation partners (such as Plaid), we receive account balances, transaction history, and related financial data necessary to provide the Services.</li>
-    <li><strong>Communications</strong> — messages, feedback, or support requests you send us.</li>
+    <li><strong>Email address</strong> — collected when you create an account or join the waitlist. In Voyage, your email is used for one-time passcode (OTP) authentication; if you sign in with Apple, Apple may provide a private relay email address instead of your real one.</li>
+    <li><strong>Phone number</strong> — collected by the Charlie app and website when you sign up for early access.</li>
+    <li><strong>Display name</strong> — optionally provided in Voyage's Settings. May be auto-populated from Sign in with Apple on first sign-in.</li>
   </ul>
-  <p><strong>Information collected automatically:</strong></p>
+
+  <p><strong>Account and app-generated identifiers</strong></p>
   <ul>
-    <li><strong>Usage data</strong> — pages visited, features used, time spent, and actions taken within the Services.</li>
-    <li><strong>Device and technical data</strong> — IP address, device type, operating system, browser type, and unique device identifiers.</li>
-    <li><strong>Analytics data</strong> — aggregated behavioral data collected via Google Analytics and similar tools to help us understand how the Services are used.</li>
+    <li><strong>User ID (UUID)</strong> — a unique identifier assigned when you create an account in Voyage. Used to scope all your data via row-level security on our backend. Not linked to your name or email in any externally visible way.</li>
+    <li><strong>Referral code</strong> — a randomly generated 6-character alphanumeric code assigned to each Voyage user, shareable to grant both parties free Pro time. We record which code you shared, which code (if any) you redeemed, and how many users have redeemed your code.</li>
+  </ul>
+
+  <p><strong>Subscription and billing state</strong></p>
+  <ul>
+    <li><strong>Subscription status and expiration</strong> — whether your account is on the free or Pro tier, your Pro expiration date (including any referral credit), processed via Apple StoreKit. We do not receive or store your payment card details — those are handled entirely by Apple.</li>
+  </ul>
+
+  <p><strong>User-generated content (Voyage)</strong></p>
+  <ul>
+    <li><strong>Saved places</strong> — Google Place ID, name, address, rating, price level, coordinates, photo reference, category (Eat / Stay / Sip / Do), and originating city for each place you save.</li>
+    <li><strong>Personal notes and ratings</strong> (Pro only) — free-text notes and a 1–5 star rating you assign to a saved place.</li>
+    <li><strong>Trips</strong> — trip name, emoji, optional start and end dates, free-text notes, and the day-by-day assignment of saved places including a visited flag and per-place note.</li>
+  </ul>
+
+  <p><strong>Financial account information (Charlie app)</strong></p>
+  <ul>
+    <li>When you connect a bank account through our third-party data aggregation partners (such as Plaid), we receive account balances, transaction history, and related financial data. Your banking credentials are never stored by Charlie Labs — they are handled entirely by the aggregation partner.</li>
+  </ul>
+
+  <p><strong>Location data</strong></p>
+  <ul>
+    <li><strong>Coarse current location (Voyage)</strong> — collected only when you explicitly tap "Use my location" in the city picker. Used immediately to reverse-geocode a nearby city name and coordinates for biasing search results. Your raw location coordinates are <em>not</em> stored on our servers. Your chosen active city (which may match your location) is stored locally on your device only.</li>
+  </ul>
+
+  <p><strong>Local device storage</strong></p>
+  <ul>
+    <li><strong>iOS local preferences (Voyage)</strong> — last viewed city, budget filter, search radius, and onboarding completion status are stored in iOS UserDefaults on your device only and are not transmitted to our servers.</li>
+    <li><strong>Authentication tokens (Voyage)</strong> — your Supabase session token is stored in the iOS Keychain by the Supabase SDK and used solely to authenticate API calls. It is not shared with third parties.</li>
+  </ul>
+
+  <p><strong>Usage and technical data</strong></p>
+  <ul>
+    <li><strong>Website analytics (Charlie)</strong> — pages visited, features used, time spent, and actions taken on getcharlie.co, collected via Google Analytics.</li>
+    <li><strong>Device and technical data (Charlie website)</strong> — IP address, device type, operating system, browser type, and unique device identifiers.</li>
+    <li><strong>No analytics SDK (Voyage)</strong> — the Voyage iOS app does not include any third-party analytics, advertising, or tracking SDK. No behavioral data about your in-app activity is sent to analytics services.</li>
+  </ul>
+
+  <p><strong>Communications</strong></p>
+  <ul>
+    <li>Messages, feedback, or support requests you send us directly.</li>
   </ul>
 
   <h2>2. How We Use Your Information</h2>
-  <p>We use the information we collect to:</p>
+  <p>We use the information we collect only to operate and improve the Services. We do not use any user data for advertising, behavioral profiling, or marketing to third parties.</p>
   <ul>
-    <li>Provide, operate, and improve the Services</li>
-    <li>Personalize your experience and deliver financial insights and recommendations</li>
-    <li>Send transactional communications, including account notifications and early access updates</li>
-    <li>Send marketing communications (you may opt out at any time)</li>
-    <li>Analyze usage patterns to improve features and user experience</li>
-    <li>Detect, investigate, and prevent fraud and abuse</li>
-    <li>Comply with applicable legal obligations</li>
+    <li><strong>Authentication</strong> — your email and user ID are used to verify your identity, send OTP sign-in codes, and maintain your session across devices.</li>
+    <li><strong>Service operation and personalization</strong> — saved places, trips, notes, and ratings are synced across your devices and used to power your personal itineraries.</li>
+    <li><strong>Place search (Voyage)</strong> — when you search for places, we send your query text and a coordinate (city center or your current location if granted) to the Google Places API to retrieve results. No user identity is included in these queries.</li>
+    <li><strong>Subscription and feature gating</strong> — subscription status and Pro expiration date are used to enable or restrict Pro-only features.</li>
+    <li><strong>Referral program (Voyage)</strong> — referral codes and redemption counts are used to credit both the referring and referred user with 30 days of Pro access when a valid referral is redeemed.</li>
+    <li><strong>Financial insights (Charlie app)</strong> — connected financial account data is used to surface spending insights, identify savings opportunities, and power automated money actions within the Charlie app.</li>
+    <li><strong>Transactional communications</strong> — we may send you sign-in codes, account notifications, and early access updates. We do not send marketing emails without your consent, and you may opt out at any time.</li>
+    <li><strong>Fraud prevention and security</strong> — to detect and prevent unauthorized access, abuse, and fraudulent activity.</li>
+    <li><strong>Legal compliance</strong> — to meet applicable legal obligations.</li>
   </ul>
 
-  <h2>3. How We Share Your Information</h2>
-  <p>We do not sell your personal information. We may share your information in the following circumstances:</p>
+  <h2>3. Third-Party Service Providers</h2>
+  <p>We do not sell your personal information. We share data only with the following processors that help us operate the Services, and only to the extent necessary for that purpose:</p>
   <ul>
-    <li><strong>Service providers</strong> — third parties that perform services on our behalf, including cloud hosting, analytics, customer support, and financial data aggregation (e.g., Plaid). These parties are contractually obligated to handle your data only as directed by us.</li>
-    <li><strong>Business transfers</strong> — in connection with a merger, acquisition, or sale of all or substantially all of our assets, your information may be transferred as part of that transaction.</li>
-    <li><strong>Legal requirements</strong> — when required by law, subpoena, or other legal process, or when we believe disclosure is necessary to protect our rights or the safety of others.</li>
-    <li><strong>With your consent</strong> — in any other circumstances where you have given us permission.</li>
+    <li><strong>Supabase, Inc.</strong> — backend database (PostgreSQL), authentication, and file storage for Voyage. All Voyage account, subscription state, saved places, trips, and user content are stored here. Supabase processes data under its Data Processing Agreement.</li>
+    <li><strong>Apple, Inc.</strong> — Sign in with Apple authentication (Voyage), App Store distribution, and in-app subscription processing via StoreKit 2. Apple's privacy policy governs its handling of your authentication and billing data.</li>
+    <li><strong>Google LLC (Google Maps Platform)</strong> — Voyage sends search queries (e.g., city name, category, budget level) and a coordinate to the Google Places API to retrieve place data and photos. No user identity or account information is included in these requests. Google's standard API usage terms and privacy policy apply.</li>
+    <li><strong>Plaid Technologies, Inc.</strong> — financial account data aggregation for the Charlie app. Plaid handles your banking credentials directly; Charlie Labs receives only read-only transaction and balance data. Plaid's privacy policy applies to the credential exchange.</li>
+    <li><strong>Loops</strong> — email and SMS delivery for Charlie waitlist communications.</li>
+    <li><strong>Google Analytics</strong> — website usage analytics for getcharlie.co. Data is aggregated and subject to Google's privacy policy.</li>
+  </ul>
+  <p>We may also disclose information in connection with a merger, acquisition, or sale of assets, or when required by law, subpoena, or legal process.</p>
+
+  <h2>4. Data Retention and Deletion</h2>
+  <p>We retain your personal information for as long as your account is active or as needed to provide the Services.</p>
+  <p><strong>Voyage account deletion</strong> is self-serve and immediate. Tapping <em>Settings → Delete Account</em> permanently and atomically removes your profile, all saved places, all trips, all referral history, and your underlying authentication record in a single transaction. This action is irreversible. Note that Supabase's standard disaster-recovery backups may retain deleted data for up to 30 days before those backups expire.</p>
+  <p><strong>Charlie app and waitlist</strong> — you may request deletion of your data at any time by contacting us at <a href="mailto:privacy@getcharlie.co">privacy@getcharlie.co</a>. We will complete verified deletion requests within 30 days, subject to any legal retention obligations.</p>
+
+  <h2>5. Data Security</h2>
+  <p>We implement industry-standard technical and organizational measures to protect your information, including:</p>
+  <ul>
+    <li>Encryption in transit using HTTPS / TLS 1.2 or higher across all Services.</li>
+    <li>Row-level security on the Voyage database — each user can only read and write their own rows; no cross-user data access is possible at the application layer.</li>
+    <li>Authentication tokens stored in the iOS Keychain (not in UserDefaults or local storage), isolated from other apps.</li>
+    <li>Account deletion and referral redemption operations run as server-side transactions with explicit access controls, preventing partial or unauthorized execution.</li>
+    <li>Regular security reviews and access controls on backend infrastructure.</li>
+  </ul>
+  <p>No method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+
+  <h2>6. Your Rights and In-App Controls</h2>
+  <p>Depending on your location, you may have rights to access, correct, delete, or port your personal data. In addition to submitting a request to <a href="mailto:privacy@getcharlie.co">privacy@getcharlie.co</a>, Voyage users have the following controls directly in the app:</p>
+  <ul>
+    <li><strong>Sign out</strong> — Settings → Sign Out.</li>
+    <li><strong>Edit display name</strong> — Settings → tap your name.</li>
+    <li><strong>Manage subscription</strong> — Settings → Pro → Manage Subscription (links to iOS Settings → Subscriptions).</li>
+    <li><strong>Delete account</strong> — Settings → Delete Account. Immediately and permanently deletes all your data as described in Section 4.</li>
+    <li><strong>Opt out of marketing communications</strong> — use the unsubscribe link in any email, or reply STOP to any SMS from Charlie Labs.</li>
+    <li><strong>Revoke location access (Voyage)</strong> — via iOS Settings → Privacy & Security → Location Services → Voyage.</li>
   </ul>
 
-  <h2>4. Financial Data and Third-Party Aggregators</h2>
-  <p>When you connect a financial account, we use third-party data aggregation services. Your financial credentials (such as bank usernames and passwords) are never stored by Charlie — they are handled entirely by our aggregation partner. We receive read-only access to your financial data solely for the purpose of providing the Services. You may disconnect your financial accounts at any time through the app settings.</p>
+  <h2>7. Cookies, Tracking, and Analytics</h2>
+  <p><strong>Website (getcharlie.co):</strong> We use cookies and Google Analytics to collect aggregated usage data. You can control cookies through your browser settings. We do not currently respond to "Do Not Track" signals.</p>
+  <p><strong>Voyage iOS app:</strong> The app does not use cookies, tracking pixels, advertising SDKs, or any third-party analytics SDK. Voyage does not track users across other apps or websites. The app's Privacy Manifest declares no tracking domains.</p>
 
-  <h2>5. Data Retention</h2>
-  <p>We retain your personal information for as long as your account is active or as needed to provide the Services. You may request deletion of your account and associated data at any time by contacting us at <a href="mailto:privacy@getcharlie.co">privacy@getcharlie.co</a>. We will respond to deletion requests within 30 days, subject to any legal obligations requiring us to retain certain records.</p>
-
-  <h2>6. Data Security</h2>
-  <p>We implement industry-standard technical and organizational measures to protect your information against unauthorized access, alteration, disclosure, or destruction. These include encryption in transit (TLS) and at rest, access controls, and regular security reviews. No method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
-
-  <h2>7. Your Rights and Choices</h2>
-  <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+  <h2>8. Children's Privacy</h2>
+  <p>Our Services have different age requirements depending on the product:</p>
   <ul>
-    <li><strong>Access</strong> — request a copy of the personal data we hold about you.</li>
-    <li><strong>Correction</strong> — request correction of inaccurate or incomplete data.</li>
-    <li><strong>Deletion</strong> — request deletion of your personal data, subject to certain exceptions.</li>
-    <li><strong>Opt-out of marketing</strong> — unsubscribe from marketing emails at any time using the link in any email we send, or by texting STOP to opt out of SMS communications.</li>
-    <li><strong>Data portability</strong> — request a machine-readable export of your data where technically feasible.</li>
+    <li><strong>Charlie</strong> (personal finance app and waitlist) is intended for users 18 and older. We do not knowingly collect personal information from anyone under 18.</li>
+    <li><strong>Voyage</strong> is rated 4+ on the App Store but is not targeted at children and does not contain features designed for users under 13. We do not knowingly collect personal information from children under 13.</li>
   </ul>
-  <p>To exercise any of these rights, contact us at <a href="mailto:privacy@getcharlie.co">privacy@getcharlie.co</a>.</p>
+  <p>If we become aware that we have inadvertently collected information from a user below the applicable age threshold, we will promptly delete it. Contact us at <a href="mailto:privacy@getcharlie.co">privacy@getcharlie.co</a> if you believe this has occurred.</p>
 
-  <h2>8. Cookies and Tracking Technologies</h2>
-  <p>We use cookies and similar tracking technologies (including Google Analytics) to collect usage data and improve the Services. You can control cookies through your browser settings. Disabling cookies may affect certain features of the Services. We do not currently respond to "Do Not Track" signals.</p>
+  <h2>9. California Privacy Rights (CCPA/CPRA)</h2>
+  <p>If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA) to know what personal information we collect and how it is used, to delete your personal information, to correct inaccurate personal information, and to opt out of the sale or sharing of personal information. We do not sell or share personal information as defined under California law. To submit a verifiable consumer request, contact us at <a href="mailto:privacy@getcharlie.co">privacy@getcharlie.co</a>.</p>
 
-  <h2>9. Children's Privacy</h2>
-  <p>The Services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have inadvertently collected information from a child under 18, we will take steps to delete such information promptly. If you believe we have collected information from a child, please contact us at <a href="mailto:privacy@getcharlie.co">privacy@getcharlie.co</a>.</p>
+  <h2>10. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page and, for material changes, notify you via email or a prominent notice within the relevant Service. Your continued use of the Services after changes are posted constitutes your acceptance of the updated policy.</p>
 
-  <h2>10. California Privacy Rights (CCPA/CPRA)</h2>
-  <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), including the right to know what personal information we collect and how it is used, the right to delete your personal information, the right to correct inaccurate personal information, and the right to opt out of the sale or sharing of personal information. We do not sell or share personal information as defined under California law. To submit a verifiable consumer request, contact us at <a href="mailto:privacy@getcharlie.co">privacy@getcharlie.co</a>.</p>
-
-  <h2>11. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page and, for material changes, notify you via email or a prominent notice within the Services. Your continued use of the Services after any changes constitutes your acceptance of the updated policy.</p>
-
-  <h2>12. Contact Us</h2>
+  <h2>11. Contact Us</h2>
   <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
   <p>
     Charlie Labs, Inc.<br>
