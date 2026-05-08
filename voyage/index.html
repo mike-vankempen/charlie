@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://getcharlie.co/voyage/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voyage Trips — The top five, anywhere.</title>
+  <meta name="description" content="Voyage surfaces the absolute best restaurants, hotels, bars, and things to do in any city — across every budget. Eat, Stay, Sip, Do.">
+  <meta property="og:title" content="Voyage Trips — The top five, anywhere.">
+  <meta property="og:description" content="Eat, Stay, Sip, Do — across every budget.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://getcharlie.co/voyage/">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KWNQRN9GS2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KWNQRN9GS2');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0A0A0A;
+      --surface: #141414;
+      --surface2: #1C1C1C;
+      --gold: #E2B96A;
+      --gold-dim: rgba(226,185,106,0.15);
+      --white: #FFFFFF;
+      --muted: rgba(255,255,255,0.45);
+      --eat: linear-gradient(140deg, #FF6B6B 0%, #E8446A 100%);
+      --stay: linear-gradient(140deg, #8B7FE8 0%, #5B6FE8 100%);
+      --sip:  linear-gradient(140deg, #F0A060 0%, #E86870 100%);
+      --do:   linear-gradient(140deg, #3ECFB2 0%, #2BA5C8 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 28px; height: 28px;
+      background: var(--gold);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon svg { width: 16px; height: 16px; }
+    .nav-logo-text {
+      font-family: 'Instrument Serif', serif;
+      font-size: 20px; color: var(--white);
+    }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-link {
+      font-size: 14px; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--white); }
+    .nav-appstore {
+      display: flex; align-items: center; gap: 7px;
+      padding: 9px 18px;
+      background: var(--white); color: #000;
+      border-radius: 100px; font-size: 13px; font-weight: 600;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .nav-appstore:hover { opacity: 0.85; }
+    .nav-appstore svg { width: 14px; height: 14px; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(226,185,106,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-plane {
+      font-size: 36px; margin-bottom: 24px;
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(226,185,106,0.5));
+    }
+    .hero h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(52px, 9vw, 96px);
+      font-weight: 400; line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--muted);
+      margin-bottom: 48px;
+      letter-spacing: 0.01em;
+    }
+    .hero-sub strong { color: rgba(255,255,255,0.75); font-weight: 500; }
+    .hero-ctas {
+      display: flex; align-items: center; gap: 16px;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .btn-appstore {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 28px;
+      background: var(--white); color: #000;
+      border-radius: 100px; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn-appstore:hover { transform: translateY(-1px); opacity: 0.92; }
+    .btn-appstore svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn-learn {
+      font-size: 15px; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .btn-learn:hover { color: var(--white); }
+
+    /* badge row */
+    .hero-badges {
+      display: flex; align-items: center; gap: 24px;
+      margin-top: 56px; flex-wrap: wrap; justify-content: center;
+    }
+    .badge {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted);
+    }
+    .badge svg { width: 15px; height: 15px; color: var(--gold); flex-shrink: 0; }
+    .badge-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.1); }
+
+    /* ── CATEGORY TILES ── */
+    .section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px; color: var(--muted);
+      max-width: 520px; line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .tile {
+      border-radius: 24px;
+      padding: 40px 36px;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      min-height: 220px;
+      position: relative; overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .tile:hover { transform: translateY(-4px); }
+    .tile-eat  { background: var(--eat); }
+    .tile-stay { background: var(--stay); }
+    .tile-sip  { background: var(--sip); }
+    .tile-do   { background: var(--do); }
+    .tile-icon {
+      position: absolute; top: 28px; left: 32px;
+      opacity: 0.9; font-size: 22px;
+    }
+    .tile h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 36px; font-weight: 400;
+      color: #fff; margin-bottom: 4px;
+    }
+    .tile p { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 500; }
+
+    /* ── HOW IT WORKS ── */
+    .how-wrap {
+      background: var(--surface);
+      border-radius: 32px;
+      padding: 72px 64px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .steps { display: flex; flex-direction: column; gap: 36px; }
+    .step { display: flex; gap: 20px; align-items: flex-start; }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold-dim); border: 1px solid rgba(226,185,106,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 600; color: var(--gold);
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .step-body h4 {
+      font-size: 16px; font-weight: 600; color: var(--white);
+      margin-bottom: 6px;
+    }
+    .step-body p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .phone-mock {
+      background: var(--surface2);
+      border-radius: 40px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+      aspect-ratio: 9/19;
+      display: flex; flex-direction: column; gap: 12px;
+      max-width: 280px; margin: 0 auto;
+    }
+    .mock-bar {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px; height: 40px;
+      display: flex; align-items: center; padding: 0 14px;
+      gap: 10px;
+    }
+    .mock-bar-label { font-size: 11px; color: var(--muted); font-weight: 500; flex: 1; }
+    .mock-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .mock-chip {
+      padding: 6px 14px; border-radius: 100px;
+      font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.08);
+      color: var(--muted);
+    }
+    .mock-chip.active { background: var(--gold); color: #000; }
+    .mock-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; }
+    .mock-tile {
+      border-radius: 16px; display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 14px; font-size: 13px; font-weight: 600;
+      min-height: 100px;
+    }
+    .mock-tile span { font-size: 10px; font-weight: 400; opacity: 0.8; }
+    .mock-tile-eat  { background: var(--eat); }
+    .mock-tile-stay { background: var(--stay); }
+    .mock-tile-sip  { background: var(--sip); }
+    .mock-tile-do   { background: var(--do); }
+
+    /* ── PRO ── */
+    .pro-section {
+      background: var(--surface);
+      border-radius: 32px; padding: 72px 64px;
+      position: relative; overflow: hidden;
+    }
+    .pro-section::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(226,185,106,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .pro-header { margin-bottom: 56px; }
+    .pro-sparkle {
+      font-size: 40px; margin-bottom: 20px; display: block;
+      filter: drop-shadow(0 0 16px rgba(226,185,106,0.6));
+    }
+    .pro-header h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(36px, 5vw, 52px); font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .pro-header p { font-size: 17px; color: var(--muted); }
+    .pro-features {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-bottom: 48px;
+    }
+    .pro-feature {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; padding: 28px;
+      display: flex; gap: 16px; align-items: flex-start;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pro-feature:hover {
+      background: rgba(226,185,106,0.06);
+      border-color: rgba(226,185,106,0.2);
+    }
+    .pro-feature-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: var(--gold-dim); border: 1px solid rgba(226,185,106,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .pro-feature h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .pro-feature p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .pro-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px;
+      background: var(--gold); color: #000;
+      border-radius: 100px; font-size: 15px; font-weight: 700;
+      text-decoration: none; transition: transform 0.2s, opacity 0.2s;
+    }
+    .pro-cta:hover { transform: translateY(-1px); opacity: 0.9; }
+    .pro-cta svg { width: 16px; height: 16px; }
+
+    /* ── CITIES ── */
+    .cities-strip {
+      background: var(--surface);
+      border-radius: 32px; padding: 56px 64px;
+      text-align: center;
+    }
+    .cities-strip h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(30px, 4vw, 44px); font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .cities-strip p { font-size: 16px; color: var(--muted); margin-bottom: 40px; }
+    .city-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .city-tag {
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      font-size: 14px; color: rgba(255,255,255,0.7);
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center; padding: 100px 24px;
+      position: relative; overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(226,185,106,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(42px, 7vw, 80px); font-weight: 400;
+      line-height: 1.08; margin-bottom: 20px;
+    }
+    .final-cta h2 em { font-style: italic; color: var(--gold); }
+    .final-cta p { font-size: 17px; color: var(--muted); margin-bottom: 48px; }
+    .appstore-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 16px 32px;
+      background: var(--white); color: #000;
+      border-radius: 16px; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: transform 0.2s, opacity 0.2s;
+    }
+    .appstore-badge:hover { transform: translateY(-2px); opacity: 0.92; }
+    .appstore-badge-inner { display: flex; flex-direction: column; align-items: flex-start; }
+    .appstore-badge-inner small { font-size: 11px; font-weight: 400; opacity: 0.6; }
+    .appstore-badge-inner strong { font-size: 17px; font-weight: 700; }
+    .appstore-badge svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-left {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .footer-logo-icon {
+      width: 22px; height: 22px; background: var(--gold);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    }
+    .footer-logo-icon svg { width: 12px; height: 12px; }
+    .footer-name {
+      font-family: 'Instrument Serif', serif; font-size: 17px;
+      color: rgba(255,255,255,0.6);
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 840px) {
+      nav { padding: 0 24px; }
+      .nav-link { display: none; }
+      .section { padding: 72px 24px; }
+      .tiles { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .tile { min-height: 160px; padding: 28px 22px; }
+      .tile h3 { font-size: 26px; }
+      .how-wrap { grid-template-columns: 1fr; padding: 48px 32px; gap: 40px; }
+      .phone-mock { display: none; }
+      .pro-section { padding: 48px 32px; }
+      .pro-features { grid-template-columns: 1fr; }
+      .cities-strip { padding: 48px 32px; }
+      footer { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
+    }
+    @media (max-width: 480px) {
+      .tiles { grid-template-columns: 1fr 1fr; }
+      .tile { min-height: 130px; padding: 20px 16px; }
+      .tile h3 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/voyage">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 11L8 3L14 11" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2 11H14" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Voyage</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-link" href="#how">How it works</a>
+    <a class="nav-link" href="#pro">Voyage Pro</a>
+    <a class="nav-appstore" href="https://apps.apple.com" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-plane">✈️</span>
+  <h1>The top five,<br><em>anywhere.</em></h1>
+  <p class="hero-sub"><strong>Eat, Stay, Sip, Do</strong> — across every budget.</p>
+  <div class="hero-ctas">
+    <a class="btn-appstore" href="https://apps.apple.com" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+    <a class="btn-learn" href="#how">Learn more ↓</a>
+  </div>
+  <div class="hero-badges">
+    <span class="badge">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      Top-ranked places only
+    </span>
+    <span class="badge-sep"></span>
+    <span class="badge">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+      Any city on the planet
+    </span>
+    <span class="badge-sep"></span>
+    <span class="badge">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM2 9v7a2 2 0 002 2h12a2 2 0 002-2V9H2zm9 2a1 1 0 000 2h3a1 1 0 000-2h-3zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H8a1 1 0 01-1-1z"/></svg>
+      Every budget
+    </span>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div id="how">
+  <div class="section">
+    <p class="section-label">What we surface</p>
+    <h2 class="section-title">Four categories.<br>Every city.</h2>
+    <p class="section-sub">Voyage cuts through the noise — no ads, no sponsored results. Just the highest-rated spots in each category, filtered by your budget and radius.</p>
+
+    <div class="tiles">
+      <div class="tile tile-eat">
+        <span class="tile-icon">🍽</span>
+        <h3>Eat</h3>
+        <p>Top restaurants</p>
+      </div>
+      <div class="tile tile-stay">
+        <span class="tile-icon">🛏</span>
+        <h3>Stay</h3>
+        <p>Top hotels</p>
+      </div>
+      <div class="tile tile-sip">
+        <span class="tile-icon">🍷</span>
+        <h3>Sip</h3>
+        <p>Top bars &amp; cafés</p>
+      </div>
+      <div class="tile tile-do">
+        <span class="tile-icon">✦</span>
+        <h3>Do</h3>
+        <p>Top things to do</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section" style="padding-top: 0;">
+  <div class="how-wrap">
+    <div class="steps">
+      <p class="section-label">How it works</p>
+      <h2 class="section-title" style="font-size: clamp(28px,4vw,42px); margin-bottom: 40px;">Three taps to your next great meal.</h2>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Pick a city</h4>
+          <p>Search anywhere on the planet — or tap "Use my location" and we'll find the best spots within walking distance.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>Set your budget &amp; radius</h4>
+          <p>Filter by budget-friendly, mid-range, or premium. Choose your radius from a quarter mile to 10 miles.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Explore the top five</h4>
+          <p>Tap any category to see the absolute best — ranked, rated, and ready. Save places you love for later.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simplified phone mockup -->
+    <div class="phone-mock">
+      <div style="font-size:10px;color:rgba(255,255,255,0.3);text-align:center;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:4px;">EXPLORING</div>
+      <div style="font-size:22px;font-weight:700;margin-bottom:16px;">San Francisco</div>
+
+      <div style="font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">BUDGET</div>
+      <div class="mock-chips" style="margin-bottom:16px;">
+        <span class="mock-chip">$</span>
+        <span class="mock-chip active">$$</span>
+        <span class="mock-chip">$$$</span>
+      </div>
+
+      <div style="font-size:9px;color:rgba(255,255,255,0.3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">RADIUS</div>
+      <div class="mock-chips" style="margin-bottom:20px;">
+        <span class="mock-chip">¼mi</span>
+        <span class="mock-chip">½mi</span>
+        <span class="mock-chip active">1mi</span>
+        <span class="mock-chip">2mi</span>
+      </div>
+
+      <div class="mock-tiles">
+        <div class="mock-tile mock-tile-eat">Eat<span>Top restaurants</span></div>
+        <div class="mock-tile mock-tile-stay">Stay<span>Top hotels</span></div>
+        <div class="mock-tile mock-tile-sip">Sip<span>Top bars</span></div>
+        <div class="mock-tile mock-tile-do">Do<span>Top things</span></div>
+      </div>
+
+      <div style="margin-top:auto;background:rgba(255,255,255,0.06);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:8px;">
+        <span style="font-size:15px;">🤍</span>
+        <div>
+          <div style="font-size:12px;font-weight:600;">Saved</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.4);">2 places saved</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VOYAGE PRO -->
+<div class="section" id="pro" style="padding-top: 0;">
+  <div class="pro-section">
+    <div class="pro-header">
+      <span class="pro-sparkle">✦</span>
+      <h2>Voyage Pro</h2>
+      <p>Plan deeper. Travel sharper.</p>
+    </div>
+
+    <div class="pro-features">
+      <div class="pro-feature">
+        <div class="pro-feature-icon">🤍</div>
+        <div>
+          <h4>Unlimited saves</h4>
+          <p>Save as many places as you want — no 10-place cap.</p>
+        </div>
+      </div>
+      <div class="pro-feature">
+        <div class="pro-feature-icon">📋</div>
+        <div>
+          <h4>Trips &amp; itineraries</h4>
+          <p>Group saved places into named trips with dates and day-by-day plans.</p>
+        </div>
+      </div>
+      <div class="pro-feature">
+        <div class="pro-feature-icon">🍽</div>
+        <div>
+          <h4>Cuisine &amp; dietary filters</h4>
+          <p>Italian, Japanese, vegetarian, gluten-free, and more.</p>
+        </div>
+      </div>
+      <div class="pro-feature">
+        <div class="pro-feature-icon">#</div>
+        <div>
+          <h4>Top 10 instead of top 5</h4>
+          <p>Same ranking — twice the depth.</p>
+        </div>
+      </div>
+      <div class="pro-feature">
+        <div class="pro-feature-icon">✏️</div>
+        <div>
+          <h4>Personal notes &amp; ratings</h4>
+          <p>What you ate, how it was — your own private 1–5 stars.</p>
+        </div>
+      </div>
+      <div class="pro-feature">
+        <div class="pro-feature-icon">✈️</div>
+        <div>
+          <h4>Offline access</h4>
+          <p>Last viewed lists cached for plane rides and bad signal.</p>
+        </div>
+      </div>
+    </div>
+
+    <a class="pro-cta" href="https://apps.apple.com" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Get Voyage Pro
+    </a>
+  </div>
+</div>
+
+<!-- CITIES -->
+<div class="section" style="padding-top: 0;">
+  <div class="cities-strip">
+    <h2>Works in any city on Earth.</h2>
+    <p>Search by name or drop a pin — Voyage finds the best nearby, no matter where you are.</p>
+    <div class="city-tags">
+      <span class="city-tag">New York</span>
+      <span class="city-tag">Paris</span>
+      <span class="city-tag">Tokyo</span>
+      <span class="city-tag">Barcelona</span>
+      <span class="city-tag">San Francisco</span>
+      <span class="city-tag">London</span>
+      <span class="city-tag">Sydney</span>
+      <span class="city-tag">Mexico City</span>
+      <span class="city-tag">Rome</span>
+      <span class="city-tag">Bangkok</span>
+      <span class="city-tag">Cape Town</span>
+      <span class="city-tag">+ anywhere</span>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Start exploring<br><em>anywhere.</em></h2>
+  <p>Download Voyage free. Upgrade to Pro anytime.</p>
+  <a class="appstore-badge" href="https://apps.apple.com" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" style="width:28px;height:28px;"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    <div class="appstore-badge-inner">
+      <small>Download on the</small>
+      <strong>App Store</strong>
+    </div>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-left" href="/">
+    <div class="footer-logo-icon">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 11L8 3L14 11" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 11H14" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <span class="footer-name">Voyage by Charlie Labs</span>
+  </a>
+  <div class="footer-links">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <span class="footer-copy">© 2026 Charlie Labs, Inc.</span>
+</footer>
+
+</body>
+</html>
